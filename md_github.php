@@ -1,10 +1,10 @@
 <?php
    /*
-   Plugin Name: NbConvert
-   Description: A plugin to add ipynb files to a blog post or page using nbviewer
-   Version: 1.0
-   Author: Andrew Challis
-   Author URI: http://www.andrewchallis.com
+   Plugin Name: md-github
+   Description: A plugin to inject markdown files directly into a post from Github
+   Version: 0.1
+   Author: Nils Nolde
+   Author URI: https://gis-ops.com
    License: MIT
    */
 
@@ -56,16 +56,14 @@ function md_github_function($atts) {
 
   $last_update_date_time = nbconvert_get_most_recent_git_change_for_file_from_api($url);
 
-  $pulled_md = '<div class="markdown-github">
-    <div class="markdown-github-labels">
+  $pulled_md = '<div class="markdown-github-labels">
       <label class="github-link">
         <a href="'.$url.'" target="_blank">Check it out on github</a>
         <label class="github-last-update"> Last updated: '.$last_update_date_time.'</label>
       </label>
     </div>
     <article class="markdown-body>'.$nb_output.'
-    </article>
-  </div>';
+    </article>';
 
   //send back text to calling function
   return $pulled_md;
@@ -95,7 +93,7 @@ function md_github_getHTMLByTagName($name, $html) {
 }
 
 function md_github_enqueue_style() {
-	wp_enqueue_style( 'NbConvert_md', plugins_url( '/css/github-markdown.css', __FILE__ ));
+	wp_enqueue_style( 'md-github', plugins_url( '/css/github-markdown.css', __FILE__ ));
 }
 add_action( 'wp_enqueue_scripts', 'md_github_enqueue_style' );
 add_shortcode("md_github", "md_github_handler");
