@@ -56,14 +56,16 @@ function md_github_function($atts) {
 
   $last_update_date_time = nbconvert_get_most_recent_git_change_for_file_from_api($url);
 
-  $pulled_md = '<div class="markdown-github-labels">
+  $pulled_md = '<div class="markdown-github"
+    <div class="markdown-github-labels">
       <label class="github-link">
         <a href="'.$url.'" target="_blank">Check it out on github</a>
         <label class="github-last-update"> Last updated: '.$last_update_date_time.'</label>
       </label>
     </div>
     <article class="markdown-body>'.$nb_output.'
-    </article>';
+    </article>
+    </div>';
 
   //send back text to calling function
   return $pulled_md;
