@@ -12,14 +12,14 @@ label.github-last-update {
   display: inline;
 }
 
-div.markdown-github-labels label.github-link a,
-div.markdown-github-labels label.github-link a:focus {
+div.markdown-github div.markdown-github-labels label.github-link a,
+div.markdown-github div.markdown-github-labels label.github-link a:focus {
   color:#fff;
   -webkit-box-shadow:none;
   box-shadow:none;
 }
 
-div.markdown-github-labels {
+div.markdown-github div.markdown-github-labels {
   color:white;
   line-height: 20px;
   padding: 0px 5px;
