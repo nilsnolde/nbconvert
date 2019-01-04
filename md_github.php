@@ -84,7 +84,7 @@ function md_github_getHTMLByTagName($name, $html) {
     $dom = new DOMDocument;
     libxml_use_internal_errors(true);
     $dom->loadHTML($html);
-    $node = $dom->getElementByTagName($name);
+    $node = $dom->getElementsByTagName($name)->item(0);
     if ($node) {
         $inner_output = md_github_innerHTML($node);
         return $inner_output;
